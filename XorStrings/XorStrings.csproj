@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <TargetFramework>net6.0</TargetFramework>
+        <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
+        <RootNamespace>SimpleStringEncryption</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="AsmResolver.DotNet" Version="4.11.2" />
+    </ItemGroup>
+
+    <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+      <Exec Command="xcopy /y /d  &quot;$(SolutionDir)Runtime\bin\netstandard2.0\*.dll&quot; &quot;$(TargetDir)&quot;" />
+    </Target>
+
+</Project>

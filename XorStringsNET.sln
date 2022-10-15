@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XorStrings", "XorStrings\XorStrings.csproj", "{CE930E9A-8662-46D3-8124-EF4EBE7F60E7}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C25474DF-5AAD-4D63-8358-CB4315C61FBC} = {C25474DF-5AAD-4D63-8358-CB4315C61FBC}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Runtime", "Runtime\Runtime.csproj", "{C25474DF-5AAD-4D63-8358-CB4315C61FBC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CE930E9A-8662-46D3-8124-EF4EBE7F60E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE930E9A-8662-46D3-8124-EF4EBE7F60E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE930E9A-8662-46D3-8124-EF4EBE7F60E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE930E9A-8662-46D3-8124-EF4EBE7F60E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C25474DF-5AAD-4D63-8358-CB4315C61FBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C25474DF-5AAD-4D63-8358-CB4315C61FBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C25474DF-5AAD-4D63-8358-CB4315C61FBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C25474DF-5AAD-4D63-8358-CB4315C61FBC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
