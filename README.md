@@ -10,4 +10,8 @@ XORStrings implements a simple XOR based cipher, I call RXOR. RXOR does not only
 Either use the commandline or drag & drop the to be obfuscated binary on the XorStrings executable.
 XORStrings does support .NET Framework 4.5+ and .NET Core up to .NET 6
 
+## More details
+
+If you want a more detailed explanation of how XorStringsNET works checkout [my blog post](https://dr4k0nia.github.io/dotnet/coding/2022/10/15/Encrypting-Strings-In-NET.html) were I explain the runtime and obfuscator in great detail 
+
 
