@@ -1,8 +1,7 @@
 # XorStringsNET
 A tool for simple and quick XOR based string encryption of .NET binaries
 
-XORStrings implements a simple XOR based cipher, I call RXOR. RXOR does not only encrypt the string but also reverses its character order. Each string is encrypted with a unique key
-The arguments used by the decryption routine are also XOR encrypted.
+XORStrings implements a simple XOR based cipher, I call RXOR. RXOR does not only encrypt the string but also reverses its character order. Each string is encrypted with a unique key. The arguments used by the decryption routine are also XOR encrypted.
 
 ## How does it works?
 
