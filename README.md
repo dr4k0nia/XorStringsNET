@@ -12,6 +12,6 @@ XORStrings does support .NET Framework 4.6+ and .NET Core up to .NET
 
 ## More details
 
-If you want a more detailed explanation of how XorStringsNET works checkout [my blog post](https://dr4k0nia.github.io/dotnet/coding/2022/10/15/Encrypting-Strings-In-NET.html) were I explain the runtime and obfuscator in great detail 
+If you want a more detailed explanation of how XorStringsNET works checkout [my blog post](https://dr4k0nia.github.io/posts/Encrypting-Strings-In-NET/) were I explain the runtime and obfuscator in great detail 
 
 
