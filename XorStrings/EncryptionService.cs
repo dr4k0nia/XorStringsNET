@@ -55,12 +55,21 @@ public class EncryptionService
         for (int i = 0; i < n; i++, n--)
         {
             data[i] ^= data[n];
-            data[n] ^= (byte) (data[i] ^ key);
+            // Encrypt data using every byte of the key
+            for (int j = 0; j < 4; j++)
+            {
+                data[n] ^= (byte)(data[i] ^ (byte)(key >> (8*j)) & 0xFF);
+            }
             data[i] ^= data[n];
         }
 
-        if (data.Length % 2 != 0)
-            data[data.Length >> 1] ^= (byte) key; // x >> 1 == x / 2
+        if (data.Length % 2 == 0)
+            return data;
+
+        for (int j = 0; j < 4; j++)
+        {
+            data[data.Length >> 1] ^= (byte)((key >> (8 * j)) & 0xFF); // x >> 1 == x / 2
+        }
 
         return data;
     }
