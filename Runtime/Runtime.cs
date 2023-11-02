@@ -36,11 +36,20 @@ public static unsafe class Runtime
         for (int i = 0; i < n; i++, n--)
         {
             buffer[i] ^= buffer[n];
-            buffer[n] ^= (byte)(buffer[i] ^ *(int*) (data + 4));
+            for (int j = 0; j < 4; j++)
+            {
+                buffer[n] ^= (byte)(buffer[i] ^ (byte)(*(int*)(data + 4) >> (8*j)) & 0xFF);
+            }
             buffer[i] ^= buffer[n];
         }
+        
         if (buffer.Length % 2 != 0)
-            buffer[buffer.Length >> 1] ^= (byte)*(int*) (data + 4); // x >> 1 == x / 2
+        {
+            for (int j = 0; j < 4; j++)
+            {
+                buffer[buffer.Length >> 1] ^= (byte)((*(int*)(data + 4) >> (8*j)) & 0xFF); // x >> 1 == x / 2
+            }
+        }
 
 
         // Return the decrypted string as UTF8
