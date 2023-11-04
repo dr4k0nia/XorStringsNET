@@ -31,25 +31,25 @@ public static unsafe class Runtime
             // We need to add 8 to the pointer because 4 bytes are reserved for the length and another 4 bytes for the XOR key
             cpblk(ptr, data + 8, (uint) buffer.Length);
         }
-
+        
         int n = buffer.Length - 1;
+        byte* key = stackalloc byte[4];
+
+        // Extract bytes of the key and copy them to the allocated stack memory
+        for (int j = 0; j < 4; j++)
+        {
+            key[j] = (byte)(*(int*)(data + 4) >> (8 * j));
+        }
+
         for (int i = 0; i < n; i++, n--)
         {
             buffer[i] ^= buffer[n];
-            for (int j = 0; j < 4; j++)
-            {
-                buffer[n] ^= (byte)(buffer[i] ^ (byte)(*(int*)(data + 4) >> (8*j)) & 0xFF);
-            }
+            buffer[n] ^= (byte)(buffer[i] ^ key[i % 4]);
             buffer[i] ^= buffer[n];
         }
-        
+
         if (buffer.Length % 2 != 0)
-        {
-            for (int j = 0; j < 4; j++)
-            {
-                buffer[buffer.Length >> 1] ^= (byte)((*(int*)(data + 4) >> (8*j)) & 0xFF); // x >> 1 == x / 2
-            }
-        }
+            buffer[buffer.Length >> 1] ^= key[0];
 
 
         // Return the decrypted string as UTF8
