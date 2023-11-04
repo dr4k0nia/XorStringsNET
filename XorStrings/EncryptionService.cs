@@ -52,15 +52,16 @@ public class EncryptionService
 
         // RXOR Cipher: reverse array order and decrypt byte by byte using single XOR
         int n = data.Length - 1;
+        byte[] key_data = BitConverter.GetBytes(key);
         for (int i = 0; i < n; i++, n--)
         {
             data[i] ^= data[n];
-            data[n] ^= (byte) (data[i] ^ key);
+            data[n] ^= (byte)(data[i] ^ key_data[i % key_data.Length]);
             data[i] ^= data[n];
         }
 
         if (data.Length % 2 != 0)
-            data[data.Length >> 1] ^= (byte) key; // x >> 1 == x / 2
+            data[data.Length >> 1] ^= (byte)key; // x >> 1 == x / 2
 
         return data;
     }
